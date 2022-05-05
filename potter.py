@@ -7,9 +7,6 @@ DISCOUNT = {
 }
 
 def get_price(books):
-    if len(books) == len(set(books)) or len(set(books)) == 1:
-        return PRICE * len(books) * DISCOUNT.get(len(set(books)), 1)
-
     total_price = 0
     while (books):
         series = list(set(books))
