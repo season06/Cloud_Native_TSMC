@@ -23,3 +23,13 @@ def test_several_discounts():
   assert 2 * (8 * 2 * 0.95) == get_price([0, 0, 1, 1])
   assert (8 * 4 * 0.8) + (8 * 2 * 0.95) == get_price([0, 0, 1, 2, 2, 3])
   assert 8 + (8 * 5 * 0.75) == get_price([0, 1, 1, 2, 3, 4])
+
+
+def test_edge_cases():
+  assert 2 * (8 * 4 * 0.8) == get_price([0, 0, 1, 1, 2, 2, 3, 4])
+  assert 3 * (8 * 5 * 0.75) + 2 * (8 * 4 * 0.8) == \
+            get_price([0, 0, 0, 0, 0,
+                       1, 1, 1, 1, 1,
+                       2, 2, 2, 2,
+                       3, 3, 3, 3, 3,
+                       4, 4, 4, 4])
