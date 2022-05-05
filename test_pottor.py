@@ -16,3 +16,10 @@ def test_simple_discounts():
   assert 8 * 3 * 0.9 == get_price([0, 2, 4])
   assert 8 * 4 * 0.8 == get_price([0, 1, 2, 4])
   assert 8 * 5 * 0.75 == get_price([0, 1, 2, 3, 4])
+
+
+def test_several_discounts():
+  assert 8 + (8 * 2 * 0.95) == get_price([0, 0, 1])
+  assert 2 * (8 * 2 * 0.95) == get_price([0, 0, 1, 1])
+  assert (8 * 4 * 0.8) + (8 * 2 * 0.95) == get_price([0, 0, 1, 2, 2, 3])
+  assert 8 + (8 * 5 * 0.75) == get_price([0, 1, 1, 2, 3, 4])
